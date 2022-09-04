@@ -206,9 +206,9 @@ dependencies = [
 
 [[package]]
 name = "aho-corasick"
-version = "0.7.18"
+version = "0.7.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1e37cfd5e7657ada45f742d6e99ca5788580b5c529dc78faf11ece6dc702656f"
+checksum = "b4f55bd91a0978cbfd91c457a164bab8b4001c833b7f323132c0a4e1922dd44e"
 dependencies = [
  "memchr",
 ]
@@ -434,6 +434,22 @@ name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
+
+[[package]]
+name = "backend-with-rust"
+version = "0.1.0"
+dependencies = [
+ "actix-web",
+ "dotenv",
+ "entity",
+ "env_logger",
+ "log",
+ "migration",
+ "sea-orm",
+ "sea-orm-migration",
+ "serde",
+ "serde_json",
+]
 
 [[package]]
 name = "bae"
@@ -2789,22 +2805,6 @@ checksum = "ed055ab27f941423197eb86b2035720b1a3ce40504df082cac2ecc6ed73335a1"
 dependencies = [
  "js-sys",
  "wasm-bindgen",
-]
-
-[[package]]
-name = "webs"
-version = "0.1.0"
-dependencies = [
- "actix-web",
- "dotenv",
- "entity",
- "env_logger",
- "log",
- "migration",
- "sea-orm",
- "sea-orm-migration",
- "serde",
- "serde_json",
 ]
 
 [[package]]
