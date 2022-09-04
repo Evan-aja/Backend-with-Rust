@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Serialize, Deserialize)]
 #[sea_orm(table_name = "cars")]
 pub struct Model {
-    #[sea_orm(primary_key)]
+    #[sea_orm(primary_key, default_value=0)]
     pub id: i32,
     pub name: String,
     pub brand: String,

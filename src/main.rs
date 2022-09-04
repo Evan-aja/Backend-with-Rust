@@ -15,6 +15,7 @@ pub struct AppState {
 async fn main() -> Result<()>{
     println!("Hello, world!");
     dotenv::dotenv().ok();
+    env_logger::init();
 
     let db=database::database::run().await.to_owned();
     if let Err(e)=db{
@@ -29,10 +30,16 @@ async fn main() -> Result<()>{
         App::new()
             .wrap(Logger::default())
             .app_data(web::Data::new(state.clone()))
-            .service(cars::getcar)
+            .configure(init)
     })
     .bind(("0.0.0.0",8000))?
     .bind(("::1",8000))?
     .run()
     .await
+}
+
+pub fn init(cfg:&mut web::ServiceConfig){
+    cfg.service(cars::getcar);
+    cfg.service(cars::delcar);
+    cfg.service(cars::postcar);
 }
