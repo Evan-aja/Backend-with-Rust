@@ -42,4 +42,5 @@ pub fn init(cfg:&mut web::ServiceConfig){
     cfg.service(cars::getcar);
     cfg.service(cars::delcar);
     cfg.service(cars::postcar);
+    cfg.service(cars::patchcar);
 }

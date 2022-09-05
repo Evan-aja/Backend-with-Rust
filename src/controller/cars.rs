@@ -1,6 +1,6 @@
-use actix_web::{get, Responder, web, HttpResponse, delete, post};
+use actix_web::{get, Responder, web, HttpResponse, delete, post, patch};
 
-use sea_orm::{EntityTrait, QueryFilter, ColumnTrait, ModelTrait, ActiveModelTrait, IntoActiveModel};
+use sea_orm::{EntityTrait, QueryFilter, ColumnTrait, ModelTrait, ActiveModelTrait, IntoActiveModel, Set};
 use serde_json::json;
 use entity::{cars, cars::Entity as Cars};
 
@@ -36,6 +36,35 @@ pub async fn postcar(state:web::Data<AppState>,form:web::Json<cars::Model>) -> i
         "error":null,
         "success":true,
         "data":add.unwrap(),
+    }))
+}
+
+#[patch("/cars")]
+pub async fn patchcar(state:web::Data<AppState>,form:web::Json<cars::Model>) -> impl Responder{
+    let db=&state.db;
+    let queer=Cars::find_by_id(form.clone().id).one(db).await.unwrap();
+    let mut patch:cars::ActiveModel = queer.unwrap().into();
+    if form.clone().name.to_owned()!="".to_string(){
+        patch.name=Set(form.clone().name.to_owned());
+    }
+    if form.clone().brand!="".to_string(){
+        patch.brand=Set(form.clone().brand);   
+    }
+    
+    let res=patch.update(db).await;
+
+    if let Err(e)=res{
+        return HttpResponse::InternalServerError().json(json!({
+            "message":"Server has envountered an error",
+            "error":e.to_string(),
+            "success": false,
+        }))
+    }
+    HttpResponse::Ok().json(json!({
+        "message":"data updated successfully",
+        "error":null,
+        "success":true,
+        "data":res.unwrap()
     }))
 }
 
