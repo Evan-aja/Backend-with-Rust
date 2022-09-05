@@ -25,6 +25,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+#     Migrate database with sea-orm-cli
+    - name: Install sea-orm-cli
+      run: cargo install sea-orm-cli
+    - name: Migrate database
+      run: sea-orm-cli migrate up -n 10000 -v
+    
+#     run dev test and prod test
     - name: Build
       run: cargo build --verbose
     - name: Run tests
