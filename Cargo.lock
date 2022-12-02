@@ -447,7 +447,7 @@ dependencies = [
  "log",
  "migration",
  "sea-orm 0.9.3",
- "sea-orm-migration 0.10.1",
+ "sea-orm-migration 0.10.5",
  "serde",
  "serde_json",
 ]
@@ -1991,18 +1991,17 @@ dependencies = [
 
 [[package]]
 name = "sea-orm"
-version = "0.10.1"
+version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c347aacd6bd1b9714fd8b5a6095b7caf4c7d6d3d2fc443c5668512effc52755d"
+checksum = "28fc9dad132e450d6320bd5953e70fb88b42785080b591e9be804da69bd8a170"
 dependencies = [
  "async-stream",
  "async-trait",
  "futures",
  "futures-util",
  "log",
- "once_cell",
  "ouroboros",
- "sea-orm-macros 0.10.1",
+ "sea-orm-macros 0.10.5",
  "sea-query 0.27.1",
  "sea-query-binder",
  "sea-strum",
@@ -2032,9 +2031,9 @@ dependencies = [
 
 [[package]]
 name = "sea-orm-cli"
-version = "0.10.1"
+version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ebf58d870d7748fae01bf0f346972941bf9f30bc25a10504ce32f3fd883ca62b"
+checksum = "d037d297869f0960e56f49b6e8c427660f9cc9c3f867132f4d1014676525dbe7"
 dependencies = [
  "chrono",
  "clap",
@@ -2061,9 +2060,9 @@ dependencies = [
 
 [[package]]
 name = "sea-orm-macros"
-version = "0.10.1"
+version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "51235dc3e7330b241a3ca2fcd00c315feffb3f9e3da193c18c01aca369be7ec7"
+checksum = "66af5d33e04e56dafb2c700f9b1201a39e6c2c77b53ed9ee93244f21f8de6041"
 dependencies = [
  "bae",
  "heck 0.3.3",
@@ -2090,15 +2089,15 @@ dependencies = [
 
 [[package]]
 name = "sea-orm-migration"
-version = "0.10.1"
+version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f9cc38a41f49640e5460b806766bea5cf66729ee6da9dab8b111a9cf5f6e57b9"
+checksum = "d5260d4956cb6ccf49654e6b94ff8030cd8778240627e971cb5a569347b61606"
 dependencies = [
  "async-trait",
  "clap",
  "dotenvy",
- "sea-orm 0.10.1",
- "sea-orm-cli 0.10.1",
+ "sea-orm 0.10.5",
+ "sea-orm-cli 0.10.5",
  "sea-schema 0.10.2",
  "tracing",
  "tracing-subscriber",
