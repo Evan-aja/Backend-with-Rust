@@ -446,7 +446,7 @@ dependencies = [
  "env_logger",
  "log",
  "migration",
- "sea-orm 0.9.3",
+ "sea-orm 0.10.7",
  "sea-orm-migration 0.10.7",
  "serde",
  "serde_json",
@@ -1997,19 +1997,24 @@ checksum = "88694d01b528a94f90ad87f8d2f546d060d070eee180315c67d158cb69476034"
 dependencies = [
  "async-stream",
  "async-trait",
+ "chrono",
  "futures",
  "futures-util",
  "log",
  "ouroboros",
+ "rust_decimal",
  "sea-orm-macros 0.10.7",
  "sea-query 0.27.1",
  "sea-query-binder",
  "sea-strum",
  "serde",
+ "serde_json",
  "sqlx",
  "thiserror",
+ "time",
  "tracing",
  "url",
+ "uuid",
 ]
 
 [[package]]
@@ -2125,7 +2130,12 @@ version = "0.27.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3497a83851c4be4d1fdc8cbc7215105b828a2a944abb64dd2e0ba233f2ce187f"
 dependencies = [
+ "chrono",
+ "rust_decimal",
  "sea-query-derive",
+ "serde_json",
+ "time",
+ "uuid",
 ]
 
 [[package]]
@@ -2134,8 +2144,13 @@ version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7dddc5c3889bbc63b7e3374d3a7494551eb801c45f2f9cb460bfa4921653563d"
 dependencies = [
+ "chrono",
+ "rust_decimal",
  "sea-query 0.27.1",
+ "serde_json",
  "sqlx",
+ "time",
+ "uuid",
 ]
 
 [[package]]
@@ -2587,6 +2602,7 @@ dependencies = [
  "itoa",
  "libc",
  "num_threads",
+ "serde",
  "time-macros",
 ]
 
